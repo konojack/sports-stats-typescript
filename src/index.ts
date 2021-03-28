@@ -9,11 +9,18 @@ const matches: string[][] = fs
     return row.split(',');
   });
 
+enum MatchResult {
+  HomeWin = 'H',
+  AwayWin = 'A',
+  Draw = 'D',
+}
+
 let manUtdWins = 0;
+
 for (let match of matches) {
-  if (match[1] === 'Man United' && match[5] === 'H') {
+  if (match[1] === 'Man United' && match[5] === MatchResult.HomeWin) {
     manUtdWins++;
-  } else if (match[2] === 'Man United' && match[5] === 'A') {
+  } else if (match[2] === 'Man United' && match[5] === MatchResult.AwayWin) {
     manUtdWins++;
   }
 }
